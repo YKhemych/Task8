@@ -2,11 +2,11 @@ import { Module } from '@nestjs/common';
 import { ConversationsService } from './conversations.service';
 import { ConversationsController } from './conversations.controller';
 import { DatabaseModule } from '../core/database.module';
-import { userProviders } from '../users/user.providers';
+import { conversationProviders } from './conversation.providers';
 
 @Module({
   imports: [DatabaseModule],
-  providers: [...userProviders, ConversationsService],
+  providers: [...conversationProviders, ConversationsService],
   controllers: [ConversationsController],
 })
 export class ConversationsModule {}
