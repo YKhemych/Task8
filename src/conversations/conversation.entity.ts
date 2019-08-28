@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, OneToMany } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, OneToMany, JoinTable } from 'typeorm';
 import { Message } from '../messages/message.entity';
 import { User } from '../users/user.entity';
 
@@ -17,5 +17,6 @@ export class Conversation {
   messages: Message[];
 
   @ManyToMany(type => User, user => user.conversations)
+  @JoinTable()
   users: User[];
 }

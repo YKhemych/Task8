@@ -17,6 +17,5 @@ export class User {
   messages: Message[];
 
   @ManyToMany(type => Conversation, conversation => conversation.users)
-  @JoinTable()
   conversations: Conversation[];
 }
